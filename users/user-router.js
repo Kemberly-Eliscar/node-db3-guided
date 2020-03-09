@@ -1,7 +1,10 @@
 const express = require("express")
 const db = require("../data/config")
+const postRouter = require("../posts/post-router")
 
 const router = express.Router()
+
+router.use("/:id/posts", postRouter) //this is a middleware call
 
 router.get("/", async (req, res, next) => {
 	try {
